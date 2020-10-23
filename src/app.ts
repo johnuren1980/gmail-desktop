@@ -94,6 +94,10 @@ function createWindow(): void {
   if (is.linux || is.windows) {
     setAppMenuBarVisibility()
   }
+  
+  if (config.get(ConfigKey.OverrideUserAgent)) {
+    mainWindow.webContents.setUserAgent(config.get(ConfigKey.OverrideUserAgent)!)
+  }
 
   mainWindow.loadURL('https://mail.google.com')
 
